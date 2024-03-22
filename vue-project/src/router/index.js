@@ -8,11 +8,22 @@ const routes = [
     component: ContactBook,
   },
   {
+    path: "/contact", // Đường dẫn cho trang thêm liên hệ
+    name: "contact.add", // Tên của tuyến đường
+    component: () =>import("@/views/AddContact.vue"), 
+  },
+  {
     // Định nghĩa route cho trang không tìm thấy
     path: "/:pathMatch(.*)*",
     name: "notfound",
     component: () => import("@/views/NotFound.vue"),
   },
+  {
+    path: "/contacts/:id",
+    name: "contact.edit",
+    component: () => import("@/views/ContactEdit.vue"),
+    props: true
+  }
 ];
 
 const router = createRouter({
